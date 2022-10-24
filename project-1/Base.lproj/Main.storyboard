@@ -123,7 +123,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZv-2w-PpJ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="46"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="46"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nhs-xa-8sz">
                                         <rect key="frame" x="15" y="0.0" width="45" height="46"/>
@@ -167,9 +167,10 @@
                         <viewLayoutGuide key="safeArea" id="W2M-L6-4IJ"/>
                         <color key="backgroundColor" red="0.47373655684722193" green="0.47183499736334233" blue="0.50505050505050497" alpha="0.16" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="SZv-2w-PpJ" firstAttribute="top" secondItem="W2M-L6-4IJ" secondAttribute="top" id="15Z-Di-SzV"/>
+                            <constraint firstItem="SZv-2w-PpJ" firstAttribute="top" secondItem="W2M-L6-4IJ" secondAttribute="top" constant="20" id="15Z-Di-SzV"/>
                             <constraint firstItem="mi5-xU-ntP" firstAttribute="top" secondItem="W2M-L6-4IJ" secondAttribute="top" id="4s3-hY-cZ6"/>
                             <constraint firstItem="W2M-L6-4IJ" firstAttribute="trailing" secondItem="mi5-xU-ntP" secondAttribute="trailing" id="895-do-0U0"/>
+                            <constraint firstItem="SZv-2w-PpJ" firstAttribute="centerX" secondItem="Vkf-ry-AhQ" secondAttribute="centerX" id="Wtz-jj-Ed4"/>
                             <constraint firstItem="W2M-L6-4IJ" firstAttribute="trailing" secondItem="SZv-2w-PpJ" secondAttribute="trailing" id="jLR-7k-E4M"/>
                             <constraint firstItem="mi5-xU-ntP" firstAttribute="leading" secondItem="W2M-L6-4IJ" secondAttribute="leading" id="lYC-tD-JQC"/>
                             <constraint firstItem="W2M-L6-4IJ" firstAttribute="bottom" secondItem="mi5-xU-ntP" secondAttribute="bottom" id="qWW-FN-ZSM"/>
@@ -193,7 +194,7 @@
                 <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="p5E-VZ-3if" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mKj-6Y-b3j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="481" y="35"/>
+            <point key="canvasLocation" x="520" y="35"/>
         </scene>
     </scenes>
     <resources>
