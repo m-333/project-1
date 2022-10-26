@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD39779E2909CA91004D6A9A /* postCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD39779D2909CA91004D6A9A /* postCollectionViewCell.swift */; };
 		FD4C794228FDDB3200CC05E1 /* user-details.json in Resources */ = {isa = PBXBuildFile; fileRef = FD4C794128FDDB3200CC05E1 /* user-details.json */; };
 		FD66847A28F75CB5005E27FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66847928F75CB5005E27FE /* AppDelegate.swift */; };
 		FD66847C28F75CB5005E27FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66847B28F75CB5005E27FE /* SceneDelegate.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD39779D2909CA91004D6A9A /* postCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postCollectionViewCell.swift; sourceTree = "<group>"; };
 		FD4C794128FDDB3200CC05E1 /* user-details.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "user-details.json"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		FD66847628F75CB5005E27FE /* project-1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project-1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD66847928F75CB5005E27FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				FDC6E92C28F992BD008D8756 /* SegmentProgressBar.swift */,
 				FDC6E92E28F992E0008D8756 /* usersCollectionViewCell.swift */,
+				FD39779D2909CA91004D6A9A /* postCollectionViewCell.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				FD66847A28F75CB5005E27FE /* AppDelegate.swift in Sources */,
 				FDC6E92628F99156008D8756 /* PreViewController.swift in Sources */,
 				FD66847C28F75CB5005E27FE /* SceneDelegate.swift in Sources */,
+				FD39779E2909CA91004D6A9A /* postCollectionViewCell.swift in Sources */,
 				FDC6E92928F99276008D8756 /* mModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

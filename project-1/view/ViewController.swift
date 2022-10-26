@@ -10,11 +10,14 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var usersCollectionView: UICollectionView!
+    @IBOutlet var postsCollectionView: UICollectionView!
     
     var userDetails: [UserDetails] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        postsCollectionView.dataSource = self
+        postsCollectionView.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
         fetchUserData()
     }
@@ -41,7 +44,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
     // MARK: - UICollectionViewDataSource
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -59,6 +62,11 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.imgView.imageFromServerURL(userDetails[indexPath.row].imageUrl)
         cell.lblUserName.text = userDetails[indexPath.row].name
         return cell
+        
+        let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "postCell", for: indexPath) as! postCollectionViewCell
+        cell2.userimgView.imageFromServerURL(userDetails[indexPath.row].imageUrl)
+        cell2.lblUserName.text = userDetails[indexPath.row].name
+        return cell2
     }
     
     // MARK: - UICollectionViewDelegate
