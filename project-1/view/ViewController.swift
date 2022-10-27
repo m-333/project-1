@@ -9,17 +9,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var usersCollectionView: UICollectionView!
-    @IBOutlet var postsCollectionView: UICollectionView!
+    @IBOutlet var collectionView: UICollectionView!
     
     var userDetails: [UserDetails] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        postsCollectionView.dataSource = self
-        postsCollectionView.delegate = self
+     
         // Do any additional setup after loading the view, typically from a nib.
         fetchUserData()
+        
     }
     
     override func didReceiveMemoryWarning() {
