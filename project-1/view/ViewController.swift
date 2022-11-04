@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var tableView: UITableView!
     @IBOutlet var collectionView: UICollectionView!
     
     var userDetails: [UserDetails] = []
@@ -16,17 +17,26 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
      
-        // Do any additional setup after loading the view, typically from a nib.
         fetchUserData()
         
+       
+       // collectionView.collectionViewLayout = createLayout()
+        
+        
     }
-    
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    func setCollectionViewDataSourceDelegate(dataSourceDelegate: UICollectionViewDataSource & UICollectionViewDelegate, forRow row: Int) {
+        collectionView.delegate = dataSourceDelegate
+        collectionView.dataSource = dataSourceDelegate
+        collectionView.tag = row
+        collectionView.reloadData()
+    }
     
-    // MARK: Private func
+    
     private func fetchUserData() {
         let path = Bundle.main.path(forResource: "user-details", ofType: "json")
         let data = NSData(contentsOfFile: path ?? "") as Data?
@@ -44,31 +54,44 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
-    // MARK: - UICollectionViewDataSource
+
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(_ collectionView: UICollectionView,
+  func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         return userDetails.count
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! usersCollectionViewCell
-        cell.imgView.imageFromServerURL(userDetails[indexPath.row].imageUrl)
-        cell.lblUserName.text = userDetails[indexPath.row].name
+     func tableView (tableView: UITableView, numberOfRowsSection section : Int) -> Int {
+        return userDetails.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "postcell", for: indexPath) as! PostTableViewCell
+
         return cell
-        
-        let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "postCell", for: indexPath) as! postCollectionViewCell
-        cell2.userimgView.imageFromServerURL(userDetails[indexPath.row].imageUrl)
-        cell2.lblUserName.text = userDetails[indexPath.row].name
-        return cell2
+    }
+    func tableView(tableView: UITableView,
+        willDisplayCell cell: UITableViewCell,
+        forRowAtIndexPath indexPath: NSIndexPath) {
+
+        guard let tableViewCell = cell as? PostTableViewCell else { return }
+
+       // tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
     }
     
-    // MARK: - UICollectionViewDelegate
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+       
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! usersCollectionViewCell
+            cell.imgView.imageFromServerURL(userDetails[indexPath.row].imageUrl)
+            cell.lblUserName.text = userDetails[indexPath.row].name
+            return cell
+    }
+    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         DispatchQueue.main.async {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "ContentView") as! ContentViewController
