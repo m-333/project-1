@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var collectionView: UICollectionView!
+
     
     var userDetails: [UserDetails] = []
     
@@ -29,12 +29,12 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func setCollectionViewDataSourceDelegate(dataSourceDelegate: UICollectionViewDataSource & UICollectionViewDelegate, forRow row: Int) {
+  /*  func setCollectionViewDataSourceDelegate(dataSourceDelegate: UICollectionViewDataSource & UICollectionViewDelegate, forRow row: Int) {
         collectionView.delegate = dataSourceDelegate
         collectionView.dataSource = dataSourceDelegate
         collectionView.tag = row
         collectionView.reloadData()
-    }
+    }*/
     
     
     private func fetchUserData() {
@@ -64,7 +64,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDe
         return userDetails.count
     }
     
-     func tableView (tableView: UITableView, numberOfRowsSection section : Int) -> Int {
+    /* func tableView (tableView: UITableView, numberOfRowsSection section : Int) -> Int {
         return userDetails.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,15 +72,15 @@ extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "postcell", for: indexPath) as! PostTableViewCell
 
         return cell
-    }
-    func tableView(tableView: UITableView,
+    }*/
+   /* func tableView(tableView: UITableView,
         willDisplayCell cell: UITableViewCell,
         forRowAtIndexPath indexPath: NSIndexPath) {
 
-        guard let tableViewCell = cell as? PostTableViewCell else { return }
+       // guard let tableViewCell = cell as? PostTableViewCell else { return }
 
        // tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
-    }
+    }*/
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

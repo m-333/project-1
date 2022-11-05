@@ -115,6 +115,9 @@
                                                 <constraint firstItem="w3N-yw-0EH" firstAttribute="leading" secondItem="9mf-qj-vjW" secondAttribute="leading" constant="10" id="rKS-lm-r2k"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="collectionView" destination="XvX-O5-xm6" id="MTR-cR-mVr"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -129,7 +132,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="XvX-O5-xm6" id="Fyx-i0-zua"/>
                         <outlet property="tableView" destination="cdL-Pt-XA7" id="WOT-kE-Bz1"/>
                     </connections>
                 </viewController>
