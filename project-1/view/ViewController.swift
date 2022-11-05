@@ -18,24 +18,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
      
         fetchUserData()
-        
-       
        // collectionView.collectionViewLayout = createLayout()
-        
-        
     }
   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-  /*  func setCollectionViewDataSourceDelegate(dataSourceDelegate: UICollectionViewDataSource & UICollectionViewDelegate, forRow row: Int) {
-        collectionView.delegate = dataSourceDelegate
-        collectionView.dataSource = dataSourceDelegate
-        collectionView.tag = row
-        collectionView.reloadData()
-    }*/
-    
+
     
     private func fetchUserData() {
         let path = Bundle.main.path(forResource: "user-details", ofType: "json")
@@ -53,52 +43,23 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-  func collectionView(_ collectionView: UICollectionView,
-                        numberOfItemsInSection section: Int) -> Int {
-        return userDetails.count
-    }
-    
-    /* func tableView (tableView: UITableView, numberOfRowsSection section : Int) -> Int {
-        return userDetails.count
+extension ViewController : UITableViewDataSource , UICollectionViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1 
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let cell = tableView.dequeueReusableCell(withIdentifier: "postcell", for: indexPath) as! PostTableViewCell
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
+    as! TableViewCell
+        cell.collectionView.tag = indexPath.section
         return cell
-    }*/
-   /* func tableView(tableView: UITableView,
-        willDisplayCell cell: UITableViewCell,
-        forRowAtIndexPath indexPath: NSIndexPath) {
-
-       // guard let tableViewCell = cell as? PostTableViewCell else { return }
-
-       // tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
-    }*/
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! usersCollectionViewCell
-            cell.imgView.imageFromServerURL(userDetails[indexPath.row].imageUrl)
-            cell.lblUserName.text = userDetails[indexPath.row].name
-            return cell
+    }
+    func tableView (_ tableView: UITableView, heightForRowAt indexpath: IndexPath) -> CGFloat{
+        return 200
     }
     
-
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        DispatchQueue.main.async {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ContentView") as! ContentViewController
-            vc.modalPresentationStyle = .overFullScreen
-            vc.pages = self.userDetails
-            vc.currentIndex = indexPath.row
-            self.present(vc, animated: true, completion: nil)
-        }
+    func numberOfSections(in tableView: UITableView) -> Int {
+       return  userDetails.count
     }
+    
 }
