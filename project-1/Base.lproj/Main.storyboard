@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="mainVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="project_1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="project_1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,7 +29,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="XvX-O5-xm6">
-                                                    <rect key="frame" x="0.0" y="-9.5" width="414" height="119"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="119"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -85,7 +85,7 @@
                                                     </cells>
                                                 </collectionView>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="w3N-yw-0EH">
-                                                    <rect key="frame" x="10" y="119.5" width="394" height="339"/>
+                                                    <rect key="frame" x="10" y="169" width="394" height="321"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="339" id="djN-TN-8KT"/>
@@ -111,12 +111,14 @@
                                             <color key="backgroundColor" red="0.92549026010000002" green="0.40392160420000001" blue="0.30980393290000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="w3N-yw-0EH" secondAttribute="trailing" constant="10" id="31I-zp-85m"/>
-                                                <constraint firstItem="w3N-yw-0EH" firstAttribute="top" secondItem="XvX-O5-xm6" secondAttribute="bottom" constant="10" id="bqo-ex-5bd"/>
+                                                <constraint firstAttribute="bottom" secondItem="w3N-yw-0EH" secondAttribute="bottom" constant="10" id="CCw-vC-uew"/>
+                                                <constraint firstItem="XvX-O5-xm6" firstAttribute="top" secondItem="9mf-qj-vjW" secondAttribute="top" id="MFQ-PL-XYH"/>
+                                                <constraint firstItem="w3N-yw-0EH" firstAttribute="top" secondItem="XvX-O5-xm6" secondAttribute="bottom" constant="50" id="bqo-ex-5bd"/>
                                                 <constraint firstItem="w3N-yw-0EH" firstAttribute="leading" secondItem="9mf-qj-vjW" secondAttribute="leading" constant="10" id="rKS-lm-r2k"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="collectionView" destination="XvX-O5-xm6" id="zOT-bJ-fsM"/>
+                                            <outlet property="collectionView" destination="XvX-O5-xm6" id="As9-2y-6MA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

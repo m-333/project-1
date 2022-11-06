@@ -46,10 +46,10 @@ class ViewController: UIViewController {
 
 extension ViewController : UITableViewDataSource , UICollectionViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1 
+        return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "postcell", for: indexPath)
     as! TableViewCell
         cell.collectionView.tag = indexPath.section
         return cell
@@ -59,7 +59,7 @@ extension ViewController : UITableViewDataSource , UICollectionViewDelegate{
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-       return  userDetails.count
+       return  1
     }
     
 }

@@ -54,20 +54,20 @@ extension TableViewCell : UICollectionViewDelegateFlowLayout, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! usersCollectionViewCell
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! usersCollectionViewCell
         cell.imgView.imageFromServerURL(userDetails[indexPath.row].imageUrl)
         cell.lblUserName.text = userDetails[indexPath.row].name
         return cell
     }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         DispatchQueue.main.async {
-            let vc = UIStoryboard(name: "mainVC", bundle: nil).instantiateViewController(withIdentifier: "ContentView") as! ContentViewController
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyBoard.instantiateViewController(withIdentifier: "ContentView") as! ContentViewController
             vc.modalPresentationStyle = .overFullScreen
             vc.pages = self.userDetails
             vc.currentIndex = indexPath.row
-            let vcc = ViewController()
-            vcc.present(vc, animated: true, completion: nil)
+            //self.present(vc, animated: true, completion: nil)
         }
     }
 }
