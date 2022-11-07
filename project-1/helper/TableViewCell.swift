@@ -10,6 +10,7 @@ import UIKit
 class TableViewCell: UITableViewCell {
     
     @IBOutlet var collectionView: UICollectionView!
+
     var userDetails: [UserDetails] = []
     
     override func awakeFromNib() {
@@ -60,14 +61,18 @@ extension TableViewCell : UICollectionViewDelegateFlowLayout, UICollectionViewDa
         return cell
     }
      func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        DispatchQueue.main.async {
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyBoard.instantiateViewController(withIdentifier: "ContentView") as! ContentViewController
-            vc.modalPresentationStyle = .overFullScreen
-            vc.pages = self.userDetails
-            vc.currentIndex = indexPath.row
-            //self.present(vc, animated: true, completion: nil)
-        }
+        //cell 
+         DispatchQueue.main.async {
+             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContentView") as! ContentViewController
+                        //let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                        //let vc = storyBoard.instantiateViewController(withIdentifier: "ContentView") as! ContentViewController
+                        vc.modalPresentationStyle = .overFullScreen
+                        vc.pages = self.userDetails
+                        vc.currentIndex = indexPath.row
+                        let vcc = ViewController()
+                        vc.present(vcc, animated: true, completion: nil)
+                        //self.present(vc, animated: true, completion: nil)
+                 }
+         
     }
 }

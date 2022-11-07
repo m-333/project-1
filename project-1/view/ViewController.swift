@@ -49,7 +49,7 @@ extension ViewController : UITableViewDataSource , UICollectionViewDelegate{
         return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "postcell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
     as! TableViewCell
         cell.collectionView.tag = indexPath.section
         return cell
@@ -61,5 +61,8 @@ extension ViewController : UITableViewDataSource , UICollectionViewDelegate{
     func numberOfSections(in tableView: UITableView) -> Int {
        return  1
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     
+      
+    }
 }
